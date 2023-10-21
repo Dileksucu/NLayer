@@ -14,7 +14,7 @@ namespace NLayer.Core
         //otomatik olarak PK olarak tanımlanabilmesini sağlamak.
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }
-        public DateTime UpdateDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
 
         //Abstract yapmamızın sebebi ; newlemeden kullanmak için abstract kullandık.
         //Bu nesne tipi soyut yapılardır ; ınterfaceler gibi. 
