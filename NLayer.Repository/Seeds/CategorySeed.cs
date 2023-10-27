@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NLayer.Core;
+using NLayer.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,7 @@ namespace NLayer.Repository.Seeds
     public class CategorySeed : IEntityTypeConfiguration<Category>
     {
         /// <summary>
+        ///test verileri eklemek için kullanılır.istediğimiz context'i bu methoda gönderebiliriz.
         ///Seed Data --> VT nında tablo oluşturuken defuşt olarak bazı dataların oluşmasını ya da kayıt edilmesini sağlar.
         ///Bunu migration ile yapıcaz asıl  , bu yöntemi 2. olarak düşünebiliriz.
         /// </summary>

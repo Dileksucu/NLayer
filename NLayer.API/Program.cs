@@ -1,5 +1,14 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using NLayer.Core.Repositories;
+using NLayer.Core.Services;
+using NLayer.Core.UnitOfWorks;
 using NLayer.Repository.Context;
+using NLayer.Repository.Repository;
+using NLayer.Repository.UnitOfWorks;
+using NLayer.Service.Mapping;
+using NLayer.Service.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,10 +19,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Oluþturduðum interfaceleri AddScoped ile  bildiiyorum.
+//Program.cs kirletmemek amacýyla Scopedlar için daha sonra dinamik olarak bir sýnýf oluþturacaðým. 
+builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
+builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>)); //Burada Typeof verme sebebim generic olmasý ýnterface'in
+builder.Services.AddScoped(typeof(IService<>), typeof(Service<>)); 
+
+//Burada AutoMapper kütüphanesini bildirdik kullanabilmek için.
+builder.Services.AddAutoMapper(typeof(MapProfile)); //Typeof ile tipini MapProfile olarak belirttik/bildirdik.
+
 //Db baðlantýsýný saðladýðýmýz kýsým
-builder.Services.AddDbContext<AppDbContext>(Options => Options
-  .UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"))
-);
+builder.Services.AddDbContext<AppDbContext>(options => options
+  .UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")));
 
 var app = builder.Build();
 

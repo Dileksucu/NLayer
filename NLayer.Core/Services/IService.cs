@@ -15,12 +15,16 @@ namespace NLayer.Core.Services
         /// İleri de product ve category için ınterfaceler oluşturduğumuz da
         ///  bu methodaların dönüş tipleri farklı olacak.
         /// </summary>
-        Task<T> GetByAsycn();
-        Task<IEnumerable<T>> GetAllAsycn(); //Bütün datayı alıcaz bu metjod ile
+        Task<T> GetByIdAsycn(int id);
+        /// <summary>
+        /// GetAllAsycn(), bütün datayı alıcaz bu method ile.
+        /// Bu method expression almıyor çünkü sorgulama yapmayacak.
+        /// </summary>
+        Task<IEnumerable<T>> GetAllAsycn(); 
         IQueryable<T> Where(Expression<Func<T,bool>> expression);
-        Task<T> AnyAsycn(Expression<Func<T, bool>> expression);
-        Task AddAsycn(T entity);
-        Task AddRangeAsycn(IEnumerable<T> entities);
+        Task<bool> AnyAsycn(Expression<Func<T, bool>> expression);
+        Task<T> AddAsycn(T entity); //geriye bir şey dönecek bundan Task<T> ekledim.
+        Task<IEnumerable<T>> AddRangeAsycn(IEnumerable<T> entities);
         Task UpdateAsycn(T entity);
         Task RemoveAsycn(T entity);
         Task RemoveRangeAsycn(IEnumerable<T> entities);

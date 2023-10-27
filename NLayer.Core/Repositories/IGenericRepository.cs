@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace NLayer.Core.Repositories
 {
-    //veritabanı ile ilgili işlemleri yapmak için oluşruduğumuz Interfacedir.
     public interface IGenericRepository<T> where T : class
     {
         Task<T> GetByIdAsync(int id);
-        Task<T> GetAll(Expression<Func<T, bool>> expression);
+        IQueryable<T> GetAll();
         /// <summary>
         ///IQueryable döndüğümüz de yazdığımız sorgular direkt Vtnına gitmez, mutlaka ToList() methodunu çağırmak gerekir.
         ///Döndükten sonra orderby gibi methodlar çağırabilirim filitrelemek için
@@ -25,14 +24,13 @@ namespace NLayer.Core.Repositories
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
-        Task<bool> AnyAsycn(Expression<Func<T, bool>> expression);
-        //?
-        Task AddRangeAsycn(IEnumerable<T> entities);
+        Task<bool> AnyAsync(Expression<Func<T, bool>> expression);
+        Task AddRangeAsync(IEnumerable<T> entities);
         /// <summary>
         ///IEnumerable: Interfacedir.
         ///Birden fazla ekle durumu olabilir
         /// </summary>
-        Task AddAsycn(T entity);
+        Task AddAsync(T entity);
         //Uzun süren işlemler olduğu için Asycn methodu vardır.
         void Update(T entity);
         /// <summary>
@@ -42,9 +40,6 @@ namespace NLayer.Core.Repositories
         /// </summary>
         /// <param name="entity"></param>
         void Remove(T entity);
-
         void RemoveRange(IEnumerable<T> entities);
-
     }
-
 }
