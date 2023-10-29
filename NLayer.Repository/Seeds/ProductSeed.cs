@@ -36,12 +36,12 @@ namespace NLayer.Repository.Seeds
                 },
                 new Product
                 {
-                     Id = 3,
-                     CategoryId = 2,
-                     Name = "Telli Defter",
-                     Price = 150,
-                     Stock = 100,
-                     CreatedDate = DateTime.Now,
+                    Id = 3,
+                    CategoryId = 2,
+                    Name = "Telli Defter",
+                    Price = 150,
+                    Stock = 100,
+                    CreatedDate = DateTime.Now,
                 }
             );
         }

@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NLayer.Core.DTOs;
 using NLayer.Core.Repositories;
 using NLayer.Core.Services;
+using NLayer.Core.SoftDelete;
 using NLayer.Core.UnitOfWorks;
 using NLayer.Repository.Repository;
 using NLayer.Repository.UnitOfWorks;
@@ -88,5 +90,12 @@ namespace NLayer.Service.Services
         {
             return _repository.Where(expression);
         }
+
+        //public async Task SoftDelete(ISoftDelete delete) 
+        //{
+        //    var contact= await _repository.
+        
+        
+        //}
     }
 }

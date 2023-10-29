@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NLayer.Repository.Configurations
 {
-    internal class CategoryConfiguration : IEntityTypeConfiguration<Category> //Bu ınterface üzerinden implementasyon ile aşağıdaki method gelir.
+    public class CategoryConfiguration : IEntityTypeConfiguration<Category> //Bu ınterface üzerinden implementasyon ile aşağıdaki method gelir.
     {
         /// <summary>
         /// Burada entity içindeki propertylerin özelliklerini ya da kullanımıyla ilgili config değişikler yapar .

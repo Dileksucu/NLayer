@@ -24,6 +24,9 @@ namespace NLayer.Service.Mapping
 
             CreateMap<ProductUpdateDto, Product>();
             //Update işlemi sırasında ; ProductUpdateDto'yu Product'a çevir dedim.
+
+            CreateMap<Product, ProductWithCategoryDto>();
+            //Product'ı , ProductWithCategoryDto'ya dönüştürüyoruz.
         }
     }
 }

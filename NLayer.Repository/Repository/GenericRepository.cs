@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NLayer.Core.DTOs;
 using NLayer.Core.Repositories;
-using NLayer.Core.SoftDelete;
 using NLayer.Repository.Context;
 using System.Linq.Expressions;
-using System.Reflection.Metadata.Ecma335;
 
 namespace NLayer.Repository.Repository
 {

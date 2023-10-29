@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace NLayer.Repository.Configurations
 {
-    internal class ProductFeatureConfiguration : IEntityTypeConfiguration<ProductFeature>
+    public class ProductFeatureConfiguration : IEntityTypeConfiguration<ProductFeature>
     {
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<ProductFeature> builder)
         {
-            builder.HasKey(x=>x.ProductId);
+            builder.HasKey(x => x.ProductId);
             builder.HasOne(x => x.Products).WithOne(x => x.ProductFeature)
                 .HasForeignKey<ProductFeature>(x => x.ProductId);
             //EF Core bunları otomatik anlar, öğrenmek için yazdım.

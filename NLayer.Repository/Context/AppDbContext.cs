@@ -18,7 +18,7 @@ namespace NLayer.Repository.Context
         /// </summary>
         public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
         {
-            var p = new Product() { ProductFeature = new ProductFeature() { } };
+            //var p = new Product() { ProductFeature = new ProductFeature() { } };
             // ProductFeature entitysini Dbset  ile eklemiyorum da burada Productın içinden ekliyorum.
         }
 
